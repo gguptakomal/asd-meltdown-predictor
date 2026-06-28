@@ -1,9 +1,5 @@
 """
-generate_data.py
-----------------
-Generates a realistic synthetic dataset for the
-ASD Meltdown Probability Predictor project.
-
+Generates a realistic synthetic dataset.
 Features:
     age, sleep_hours, stress_level, social_interaction,
     sensory_sensitivity, anxiety_level, routine_change, noise_tolerance
