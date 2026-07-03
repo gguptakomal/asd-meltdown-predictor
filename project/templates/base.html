@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ProHealth ASD Predictor{% endblock %}</title>
+    <!-- Import Google Fonts (Poppins, Inter, Manrope) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Load Core Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="brand-icon">🩺</span>
+                <span class="brand-name">ProHealth</span>
+            </div>
+            <nav class="nav-menu">
+                {% if session.get('user') %}
+                    <!-- Authenticated Dashboard Navigation -->
+                    <a href="/dashboard" class="nav-link {% if request.path == '/dashboard' %}active{% endif %}">Overview</a>
+                    <a href="/assessment" class="nav-link {% if request.path == '/assessment' %}active{% endif %}">New Assessment</a>
+                    <a href="/history" class="nav-link {% if request.path == '/history' %}active{% endif %}">History</a>
+                    <a href="/profile" class="nav-link {% if request.path == '/profile' %}active{% endif %}">Profile</a>
+                    <a href="/logout" class="nav-btn nav-btn-outline">Sign Out</a>
+                {% else %}
+                    <!-- Public Navigation -->
+                    <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                    <a href="/login" class="nav-btn nav-btn-outline">Sign In</a>
+                    <a href="/register" class="nav-btn nav-btn-primary">Register</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="app-footer">
+        <div class="footer-container">
+            <p>
+                © 2026 ProHealth ASD Predictor. All rights reserved. Secure & HIPAA-Ready Clinical Analytics Platform.
+            </p>
+        </div>
+    </footer>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

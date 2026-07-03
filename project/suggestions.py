@@ -1,23 +1,17 @@
 """
-suggestions.py
---------------
+project/suggestions.py
+----------------------
 Rule-based suggestion engine for the
 ASD Meltdown Probability Predictor project.
  
 Function:
     get_suggestions(probability) → dict
- 
-Risk Levels:
-    Low     →  probability < 40
-    Medium  →  probability 40 – 70
-    High    →  probability > 70
 """
- 
- 
+
 # ── Suggestion Bank ───────────────────────────────────────────────────────────
- 
+
 _SUGGESTIONS = {
- 
+
     "Low": {
         "risk_level": "🟢 Low Risk",
         "sleep": (
@@ -46,7 +40,7 @@ _SUGGESTIONS = {
             "help sustain this level."
         ),
     },
- 
+
     "Medium": {
         "risk_level": "🟡 Medium Risk",
         "sleep": (
@@ -75,7 +69,7 @@ _SUGGESTIONS = {
             "Consider regular check-ins using an emotion chart or feelings card."
         ),
     },
- 
+
     "High": {
         "risk_level": "🔴 High Risk",
         "sleep": (
@@ -110,20 +104,20 @@ _SUGGESTIONS = {
         ),
     },
 }
- 
- 
+
+
 # ── Core Function ─────────────────────────────────────────────────────────────
- 
+
 def get_suggestions(probability: float) -> dict:
     """
     Generate a risk level and actionable suggestions based on
     meltdown probability percentage.
- 
+
     Parameters
     ----------
     probability : float
         Meltdown probability in the range 0 – 100.
- 
+
     Returns
     -------
     dict with keys:
@@ -136,12 +130,12 @@ def get_suggestions(probability: float) -> dict:
             ├── routine
             └── anxiety
     """
- 
+
     if not (0 <= probability <= 100):
         raise ValueError(
             f"[ERROR] probability must be between 0 and 100, got {probability}"
         )
- 
+
     # ── Determine risk tier ───────────────────────────────────────────────────
     if probability < 40:
         tier = "Low"
@@ -150,7 +144,7 @@ def get_suggestions(probability: float) -> dict:
             "The child is currently in a stable state. "
             "Maintain the current environment and routine."
         )
- 
+
     elif probability <= 70:
         tier = "Medium"
         overall = (
@@ -158,7 +152,7 @@ def get_suggestions(probability: float) -> dict:
             "Some risk factors are present. "
             "Proactive steps now can prevent escalation."
         )
- 
+
     else:
         tier = "High"
         overall = (
@@ -166,9 +160,9 @@ def get_suggestions(probability: float) -> dict:
             "Multiple risk factors are elevated. "
             "Immediate calming strategies are strongly recommended."
         )
- 
+
     bank = _SUGGESTIONS[tier]
- 
+
     return {
         "risk_level": bank["risk_level"],
         "overall":    overall,
@@ -180,22 +174,3 @@ def get_suggestions(probability: float) -> dict:
             "Anxiety":          bank["anxiety"],
         },
     }
- 
- 
-# ── Quick Test ────────────────────────────────────────────────────────────────
- 
-if __name__ == "__main__":
- 
-    test_cases = [25.0, 55.5, 82.3]
- 
-    for prob in test_cases:
-        result = get_suggestions(prob)
-        print("\n" + "═" * 55)
-        print(f"  Probability : {prob}%")
-        print(f"  Risk Level  : {result['risk_level']}")
-        print(f"  Overall     : {result['overall']}")
-        print("  Suggestions :")
-        for topic, text in result["suggestions"].items():
-            print(f"\n  [{topic}]\n  {text}")
-    print("\n" + "═" * 55)
- 

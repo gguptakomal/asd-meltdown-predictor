@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}ProHealth ASD Predictor - Home{% endblock %}
+
+{% block content %}
+<div class="hero-card">
+    <div class="hero-grid">
+        <div class="hero-content">
+            <h1 class="hero-title">Compassionate care, exceptional results.</h1>
+            <p class="hero-desc">
+                Welcome to ProHealth ASD Predictor, an advanced portal for parents and caregivers leveraging machine learning 
+                to proactively assess meltdown risks and view personalized, actionable suggestions.
+            </p>
+            <a href="/login" class="nav-btn nav-btn-primary" style="padding: 14px 36px; font-size: 1rem; border-radius: 30px;">
+                Start Assessment
+            </a>
+            
+            <!-- Glassmorphic Stats Overlay -->
+            <div class="hero-glass-stats">
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Model Accuracy</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5000+</h3>
+                    <p>Assessments Run</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Secure Portal</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <!-- Medical Dashboard SVG Illustration (Self-contained and premium) -->
+            <svg class="hero-illustration" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="350" rx="24" fill="rgba(255,255,255,0.03)" />
+                <path d="M50 50 H350 M50 100 H350 M50 150 H350 M50 200 H350 M50 250 H350 M50 300 H350" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+                <path d="M50 50 V300 M100 50 V300 M150 50 V300 M200 50 V300 M250 50 V300 M300 50 V300 M350 50 V300" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+                
+                <circle cx="200" cy="175" r="90" fill="url(#heroCircleGrad)" opacity="0.12" />
+                
+                <!-- Clinical Trend Line -->
+                <path d="M 50,230 L 110,210 L 160,140 L 210,180 L 270,80 L 320,110 L 350,50" stroke="#60C5D8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#heroGlow)" />
+                <path d="M 50,230 L 110,210 L 160,140 L 210,180 L 270,80 L 320,110 L 350,50 L 350,300 L 50,300 Z" fill="url(#heroAreaGrad)" opacity="0.15" />
+                
+                <!-- Core Data Nodes -->
+                <circle cx="160" cy="140" r="7" fill="#60C5D8" stroke="#FFFFFF" stroke-width="2.5" />
+                <circle cx="270" cy="80" r="7" fill="#60C5D8" stroke="#FFFFFF" stroke-width="2.5" />
+                <circle cx="350" cy="50" r="7" fill="#60C5D8" stroke="#FFFFFF" stroke-width="2.5" />
+                
+                <!-- Floating ECG Panel -->
+                <rect x="60" y="60" width="120" height="56" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1" backdrop-filter="blur(10px)" />
+                <path d="M 75,90 L 85,90 L 92,72 L 98,105 L 105,82 L 112,90 L 125,90" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <text x="132" y="93" fill="#FFFFFF" font-family="Poppins" font-size="10" font-weight="700">76 BPM</text>
+                
+                <!-- Gradients -->
+                <defs>
+                    <linearGradient id="heroCircleGrad" x1="110" y1="85" x2="290" y2="265" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#60C5D8" />
+                        <stop offset="1" stop-color="#1E3A8A" />
+                    </linearGradient>
+                    <linearGradient id="heroAreaGrad" x1="200" y1="50" x2="200" y2="300" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#60C5D8" />
+                        <stop offset="1" stop-color="#60C5D8" stop-opacity="0" />
+                    </linearGradient>
+                    <filter id="heroGlow" x="-10" y="-10" width="420" height="370" filterUnits="userSpaceOnUse">
+                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title">Key Portal Features</h2>
+<div class="feature-cards-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 50px;">
+    <!-- Card 1: Behavioral Logging -->
+    <div class="premium-card" style="padding: 24px;">
+        <div class="card-icon-wrapper" style="margin-bottom: 16px; width: 48px; height: 48px; font-size: 1.5rem;">🧠</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Behavioral Tracking</h3>
+        <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">
+            Monitor daily anxiety levels, acute stress indicators, and social interaction levels to capture behavioral fluctuations.
+        </p>
+    </div>
+    
+    <!-- Card 2: Environmental Inputs -->
+    <div class="premium-card" style="padding: 24px;">
+        <div class="card-icon-wrapper" style="margin-bottom: 16px; width: 48px; height: 48px; font-size: 1.5rem;">🏡</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Environmental Log</h3>
+        <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">
+            Track sleep duration, sensory overload thresholds, noise tolerances, and sudden routine changes to pinpoint triggers.
+        </p>
+    </div>
+    
+    <!-- Card 3: 7-Day Trend Charts -->
+    <div class="premium-card" style="padding: 24px;">
+        <div class="card-icon-wrapper" style="margin-bottom: 16px; width: 48px; height: 48px; font-size: 1.5rem;">📈</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">1-Week Trends Graph</h3>
+        <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">
+            Visualize meltdown risk probability trends and sleep tracking metrics over the last 7 days in interactive charts.
+        </p>
+    </div>
+
+    <!-- Card 4: Monthly Calendar History -->
+    <div class="premium-card" style="padding: 24px;">
+        <div class="card-icon-wrapper" style="margin-bottom: 16px; width: 48px; height: 48px; font-size: 1.5rem;">📅</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Calendar-Based History</h3>
+        <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">
+            Click specific calendar days to view logged factors and color-coded risk alerts mapped directly to past dates.
+        </p>
+    </div>
+
+    <!-- Card 5: Daily Caregiver Notes -->
+    <div class="premium-card" style="padding: 24px;">
+        <div class="card-icon-wrapper" style="margin-bottom: 16px; width: 48px; height: 48px; font-size: 1.5rem;">📝</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Daily Notes Integration</h3>
+        <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">
+            Log specific notes, triggers, and caregiver observations that persist and link directly to each daily assessment.
+        </p>
+    </div>
+
+    <!-- Card 6: Downloadable Reports -->
+    <div class="premium-card" style="padding: 24px;">
+        <div class="card-icon-wrapper" style="margin-bottom: 16px; width: 48px; height: 48px; font-size: 1.5rem;">📥</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 8px;">Text Report Downloads</h3>
+        <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">
+            Download structured, clinical-grade plain text assessment summaries and recommended suggestions with a single click.
+        </p>
+    </div>
+</div>
+{% endblock %}
