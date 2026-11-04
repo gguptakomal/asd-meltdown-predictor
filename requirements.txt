@@ -1,11 +1,6 @@
 numpy
 pandas
-scikit-learn
 matplotlib
 seaborn
+scikit-learn
 streamlit
-
-# New — Database & Auth
-mysql-connector-python
-python-dotenv
-bcrypt
